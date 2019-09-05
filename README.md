@@ -1,5 +1,5 @@
 # Domain Recon
-A simple bash script I wrote to download tools that enumerate Subdomains on a given site and execute them on the given site.
+A simple bash script I wrote to download tools that I use for recon and run them on a given site.
 
 ### The tools currently being used are:
 - [subfinder](https://github.com/subfinder/subfinder)
