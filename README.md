@@ -7,11 +7,11 @@ A simple bash script I wrote to download tools that enumerate Subdomains on a gi
 - [assetfinder](https://github.com/tomnomnom/assetfinder)
 
 ### Installation
-This downloads all tools into the directory `/opt`:  
+>> This downloads all tools into the directory `/opt`:  
 `$ ./setup.sh --directory /opt`
 
 ### Usage
-Runs all recon tools on the domain `example.com`:  
+>> Runs all recon tools on the domain `example.com`:  
 `$ ./recon.sh --domain example.com`
 
 ## Contact
