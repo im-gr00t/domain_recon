@@ -12,5 +12,5 @@ A simple bash script I wrote to download tools that enumerate Subdomains on a gi
 ### Usage
 `$ ./recon.sh --domain example.com`
 
-### Contact
-Follow and DM me on Twitter @\_im\_gr00t if you'd like me to add more tools :)
+## Contact
+`Follow and DM me on Twitter @\_im\_gr00t if you'd like me to add more tools :)`
