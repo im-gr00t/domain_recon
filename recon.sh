@@ -46,6 +46,13 @@ then
         # Run amass
         echo -e "\e[31m[+]\e[0m \e[36mStarting amass: \e[0m\e[93mforeground\e[0m"
         amass enum -o ${PATH}/amass_output.txt -d ${DOMAIN}
+        
+        # Cat and sort -u all domains into a single file called "all_domains_sorted.txt"
+        cd $PATH;
+        cat *.txt >> all_domains.txt;
+        sort -u all_domains.txt >> all_domains_sorted.txt;
+        rm all_domains.txt;
+        echo -e "\e[31m[+]\e[0m \e[36mDone\e[0m\e[93m...\e[0m"
 else
         echo "Usage: $0 --help"
 fi
