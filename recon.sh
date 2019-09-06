@@ -24,12 +24,7 @@ DOMAIN=$2
 if [ "$1" == "-d" -o "$1" == "--domain" ]
 then
 	# Create the directory to store output
-	mkdir -p ~/Documents/$2/RECON/DNS/
-
-	# Run amass
-	echo "[+] Starting amass"
-	amass enum -o ~/Documents/${DOMAIN}/RECON/DNS/amass_output.txt
-	echo "[+] amass is done..."
+	mkdir -p ~/Documents/${DOMAIN}/RECON/DNS/
 
 	# Run subfinder as background process
 	echo "[+] Starting subfinder"
@@ -52,6 +47,13 @@ then
 	mv ${DOMAIN}*.txt findomain_output.txt
 	mv findomain_output.txt ~/Documents/${DOMAIN}/RECON/DNS/findomain_output.txt
 	echo "[+] findomain is done..."
+	
+	# Run amass
+	echo "[+] Starting amass"
+	amass enum -o ~/Documents/${DOMAIN}/RECON/DNS/amass_output.txt -d ${DOMAIN}
+	echo "[+] amass is done..."
+	
+	echo "[+] Done..."
 else
 	echo "Usage: $0 --help"
 fi
