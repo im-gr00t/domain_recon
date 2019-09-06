@@ -19,31 +19,33 @@ then
         exit 2;
 fi
 
-DOMAIN=$2
 # Check for valid command line option
-if [ "$1" == "-d" -o "$1" == "--domain" ]
+if [ "$1" == "-d" -o "$1" == "--domain" -a -d "$2" ]
 then
+        DOMAIN=$2
+        PATH=~/Targets/${DOMAIN}/Subdomain_recon
+        
         # Display target being enumerated
         echo -e "\e[31m[+]\e[0m \e[36mTarget:\e[0m \e[93m${DOMAIN}\e[0m"
 
         # Create the directory to store output
-        mkdir -p ~/Documents/${DOMAIN}/RECON/DNS/
+        mkdir -p ${PATH}
 
         # Run subfinder
         echo -e "\e[31m[+]\e[0m \e[36mStarting subfinder: \e[0m\e[93mforeground\e[0m"
-        subfinder -d ${DOMAIN} -o ~/Documents/${DOMAIN}/RECON/DNS/subfinder_output.txt
+        subfinder -d ${DOMAIN} -o ${PATH}/subfinder_output.txt
 
         # Run sublister
         echo -e "\e[31m[+]\e[0m \e[36mStarting sublist3r: \e[0m\e[93foreground\e[0m"
-        sublist3r -d ${DOMAIN} -o ~/Documents/${DOMAIN}/RECON/DNS/sublist3r_output.txt
+        sublist3r -d ${DOMAIN} -o ${PATH}/sublist3r_output.txt
 
         # Run assetfinder
         echo -e "\e[31m[+]\e[0m \e[36mStarting assetfinder: \e[0m\e[93mforeground\e[0m"
-        assetfinder -subs-only ${DOMAIN} | tee -a ~/Documents/${DOMAIN}/RECON/DNS/assetfinder_output.txt
+        assetfinder -subs-only ${DOMAIN} | tee -a ${PATH}/assetfinder_output.txt
 
         # Run amass
         echo -e "\e[31m[+]\e[0m \e[36mStarting amass: \e[0m\e[93mforeground\e[0m"
-        amass enum -o ~/Documents/${DOMAIN}/RECON/DNS/amass_output.txt -d ${DOMAIN}
+        amass enum -o ${PATH}/amass_output.txt -d ${DOMAIN}
 else
         echo "Usage: $0 --help"
 fi
