@@ -4,13 +4,13 @@
 # Check if user is supplying an argument
 if [ -z "$1" ]
 then
-        echo "\e[31m;Usage: $0 --help\e[0m;";
+        echo "\e[31mUsage: $0 --help\e[0m";
         exit 2;
 
 # Check for valid help flag
 elif [ "$1" == "-h" -o "$1" == "--help" ]
 then
-        echo "\e[31m;Usage: $0 [options] <directory>\e[0m;";
+        echo "\e[31mUsage: $0 [options] <directory>\e[0m";
         echo "Options:";
         echo -e "\t-h, --help\tDisplay this help message";
         echo -e "\t-d, --domain\tSpecifies desired directory to save all tools in (will be created if it doesn't exist)";
@@ -25,7 +25,7 @@ then
         # Check if "--domain" has valid argument
         if [ -z "$2" ]
         then
-                echo "\e[31m;Usage: $0 --help\e[0m;"
+                echo "\e[31mUsage: $0 --help\e[0m"
                 exit 2;
         fi
         
@@ -66,6 +66,6 @@ then
         rm all_domains.txt;
         echo -e "\e[31m[+]\e[0m \e[36mDone\e[0m\e[93m...\e[0m"
 else
-        echo "\e[31m;Usage: $0 --help\e[0m;"
+        echo "\e[31mUsage: $0 --help\e[0m"
         exit 2
 fi
