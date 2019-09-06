@@ -20,10 +20,17 @@ then
 fi
 
 # Check for valid command line option
-if [ "$1" == "-d" -o "$1" == "--domain" -a -d "$2" ]
+if [ "$1" == "-d" -o "$1" == "--domain" -a "$2" != "" ]
 then
+        # Check if "--domain" has valid argument
+        if [ -z "$2" ]
+        then
+                echo "Usage: $0 --help"
+                exit 2;
+        fi
+        
         DOMAIN=$2
-        PATH=~/Targets/${DOMAIN}/Subdomain_recon
+        DIR=~/Targets/${DOMAIN}/Subdomain_recon
         
         # Display target being enumerated
         echo -e "\e[31m[+]\e[0m \e[36mTarget:\e[0m \e[93m${DOMAIN}\e[0m"
@@ -55,4 +62,5 @@ then
         echo -e "\e[31m[+]\e[0m \e[36mDone\e[0m\e[93m...\e[0m"
 else
         echo "Usage: $0 --help"
+        exit 2
 fi
