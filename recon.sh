@@ -41,25 +41,26 @@ then
 
         # Run subfinder
         echo -e "\e[91m[+]\e[0m \e[36mStarting subfinder: \e[0m\e[93mforeground\e[0m"
-        subfinder -d ${DOMAIN} -o ${DIR}/subfinder_output.txt
         sleep 3
+        subfinder -d ${DOMAIN} -o ${DIR}/subfinder_output.txt
 
         # Run sublister
-        echo -e "\e[91m[+]\e[0m \e[36mStarting sublist3r: \e[0m\e[93foreground\e[0m"
-        sublist3r -d ${DOMAIN} -o ${DIR}/sublist3r_output.txt
+        echo -e "\e[91m[+]\e[0m \e[36mStarting sublist3r: \e[0m\e[93mforeground\e[0m"
         sleep 3
+        sublist3r -d ${DOMAIN} -o ${DIR}/sublist3r_output.txt
         
         # Run assetfinder
         echo -e "\e[91m[+]\e[0m \e[36mStarting assetfinder: \e[0m\e[93mforeground\e[0m"
-        assetfinder -subs-only ${DOMAIN} | tee -a ${DIR}/assetfinder_output.txt
         sleep 3
+        assetfinder -subs-only ${DOMAIN} | tee -a ${DIR}/assetfinder_output.txt
 
         # Run amass
         echo -e "\e[31m[+]\e[0m \e[36mStarting amass: \e[0m\e[93mforeground\e[0m"
-        amass enum -o ${DIR}/amass_output.txt -d ${DOMAIN}
         sleep 3
+        amass enum -o ${DIR}/amass_output.txt -d ${DOMAIN}
         
         # Cat and sort -u all domains into a single file called "all_domains_sorted.txt"
+        echo -e "\e[31m[+]\e[0m \e[36mSorting all domain into one file: \e[0m\e[93m${DIR}/all_domains_sorted.txt\e[0m"
         cd $DIR;
         cat *.txt >> all_domains.txt;
         sort -u all_domains.txt >> all_domains_sorted.txt;
