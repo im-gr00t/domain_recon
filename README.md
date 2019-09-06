@@ -5,6 +5,7 @@ A simple bash script I wrote to download tools that I use for recon and run them
 - [subfinder](https://github.com/subfinder/subfinder)
 - [sublist3r](https://github.com/aboul3la/Sublist3r)
 - [assetfinder](https://github.com/tomnomnom/assetfinder)
+- [amass](https://github.com/OWASP/Amass)
 
 ### Installation
 This downloads all tools into the directory `/opt`:  
